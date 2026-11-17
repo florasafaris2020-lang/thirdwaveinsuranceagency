@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Third Wave Insurance Agency</title>
+    <style>
+        /* Calibri font applied to everything, including headings */
+        body, h1, h2, h3, h4, h5, h6, p, label, input, select, button, span {
+            font-family: 'Calibri', 'Candara', 'Segoe', 'Segoe UI', Optima, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 30px 20px;
+            background-color: #ffffff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .logo {
+            max-width: 220px;
+            height: auto;
+            margin-bottom: 15px;
+        }
+
+        header h1 {
+            color: #2c3e50;
+            margin: 10px 0 5px 0;
+            font-size: 28px;
+        }
+
+        header p {
+            color: #7f8c8d;
+            font-size: 16px;
+        }
+
+        .pricing-info {
+            background-color: #e8f4f8;
+            border-left: 5px solid #3498db;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 4px;
+        }
+
+        .pricing-info h3 {
+            margin-top: 0;
+            color: #2980b9;
+        }
+
+        .pricing-info ul {
+            margin-bottom: 0;
+            padding-left: 20px;
+        }
+
+        .pricing-info li {
+            margin-bottom: 8px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="number"],
+        input[type="date"],
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+
+        input:focus, select:focus {
+            border-color: #3498db;
+            outline: none;
+        }
+
+        button {
+            background-color: #3498db;
+            color: white;
+            padding: 14px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            width: 100%;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        .estimated-premium {
+            margin-top: 25px;
+            padding: 15px;
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 4px;
+            color: #155724;
+            font-weight: bold;
+            font-size: 18px;
+            display: none;
+            text-align: center;
+        }
+
+        .disclaimer {
+            font-size: 14px;
+            color: #666;
+            margin-top: 25px;
+            text-align: center;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <!-- Note: Replace the src below with the exact logo file path from your domain if it does not load automatically -->
+        <img src="https://florasafaris2020-lang.github.io/third-wave-solutions/logo.png" 
+             alt="Third Wave Insurance Agency Logo" 
+             class="logo" 
+             onerror="this.src='https://via.placeholder.com/220x80/2c3e50/ffffff?text=Third+Wave+Insurance'">
+        <h1>Third Wave Insurance Agency</h1>
+        <p>Submit your details for insurance coverage. All applications are subject to underwriting approval.</p>
+    </div>
+</header>
+
+<div class="container">
+    <div class="pricing-info">
+        <h3>Standard Premium Rates</h3>
+        <ul>
+            <li><strong>1 Month TOR (Third Party Only):</strong> KES 1,500/-</li>
+            <li><strong>1 Year TPO (Third Party Only):</strong> KES 6,000/-</li>
+            <li><strong>1 Year Comprehensive:</strong> 4% of the Sum Insured (Vehicle Value)</li>
+        </ul>
+    </div>
+
+    <form action="https://api.web3forms.com/submit" method="POST" id="insuranceForm">
+        <!-- Web3Forms Configuration -->
+        <input type="hidden" name="access_key" value="49a72ad5-849a-4aa1-9bba-fc1d1b63485f">
+        <input type="hidden" name="subject" value="New Insurance Application - Third Wave Insurance Agency">
+        <input type="hidden" name="from_name" value="Third Wave Insurance Agency">
+        <!-- Optional: Redirect to a custom thank you page -->
+        <!-- <input type="hidden" name="redirect" value="https://yourwebsite.com/thank-you.html"> -->
+
+        <div class="form-group">
+            <label for="insuredName">Insured Name *</label>
+            <input type="text" id="insuredName" name="Insured_Name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="coverageType">Coverage Type *</label>
+            <select id="coverageType" name="Coverage_Type" required onchange="calculatePremium()">
+                <option value="">-- Select Coverage Type --</option>
+                <option value="1 Month TOR">1 Month TOR (Third Party Only) - KES 1,500/-</option>
+                <option value="1 Year TPO">1 Year TPO (Third Party Only) - KES 6,000/-</option>
+                <option value="1 Year Comprehensive">1 Year Comprehensive - 4% of Vehicle Value</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="certificateType">Certificate Type *</label>
+            <select id="certificateType" name="Certificate_Type" required>
+                <option value="">-- Select Certificate Type --</option>
+                <option value="Type C - Private Car">Type C - Private Car</option>
+                <option value="Type D - PSV">Type D - PSV</option>
+                <option value="Type B - Commercial Vehicle">Type B - Commercial Vehicle</option>
+                <option value="Class A - PSV Unmarked">Class A - PSV Unmarked</option>
+                <option value="Type D - Motor Cycle">Type D - Motor Cycle</option>
+                <option value="Type D – Motor Cycle Commercial">Type D – Motor Cycle Commercial</option>
+                <option value="Type A - Taxi">Type A - Taxi</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="vehicleNumber">Vehicle Registration Number *</label>
+            <input type="text" id="vehicleNumber" name="Vehicle_Number" required>
+        </div>
+
+        <div class="form-group">
+            <label for="chassisNumber">Chassis Number *</label>
+            <input type="text" id="chassisNumber" name="Chassis_Number" required>
+        </div>
+
+        <div class="form-group">
+            <label for="engineNumber">Engine Number *</label>
+            <input type="text" id="engineNumber" name="Engine_Number" required>
+        </div>
+
+        <div class="form-group">
+            <label for="vehicleMake">Vehicle Make *</label>
+            <input type="text" id="vehicleMake" name="Vehicle_Make" required>
+        </div>
+
+        <div class="form-group">
+            <label for="vehicleModel">Vehicle Model *</label>
+            <input type="text" id="vehicleModel" name="Vehicle_Model" required>
+        </div>
+
+        <div class="form-group">
+            <label for="bodyType">Body Type *</label>
+            <input type="text" id="bodyType" name="Body_Type" required>
+        </div>
+
+        <div class="form-group">
+            <label for="yearOfManufacture">Year of Manufacture *</label>
+            <input type="number" id="yearOfManufacture" name="Year_of_Manufacture" min="1900" max="2026" required>
+        </div>
+
+        <div class="form-group">
+            <label for="sumInsured">Sum Insured (Vehicle Value in KES) *</label>
+            <input type="number" id="sumInsured" name="Sum_Insured" min="0" required oninput="calculatePremium()">
+        </div>
+
+        <div class="form-group">
+            <label for="insuredPIN">Insured KRA PIN *</label>
+            <input type="text" id="insuredPIN" name="Insured_PIN" required>
+        </div>
+
+        <div class="form-group">
+            <label for="startDate">Start Date *</label>
+            <input type="date" id="startDate" name="Start_Date" required>
+        </div>
+
+        <div class="form-group">
+            <label for="endDate">End Date *</label>
+            <input type="date" id="endDate" name="End_Date" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" name="Email" required>
+        </div>
+
+        <div class="form-group">
+            <label for="phoneNumber">Phone Number *</label>
+            <input type="tel" id="phoneNumber" name="Phone_Number" required>
+        </div>
+
+        <div id="estimatedPremium" class="estimated-premium">
+            Estimated Premium: <span id="premiumAmount">KES 0.00</span>
+        </div>
+
+        <button type="submit">Submit Application for Approval</button>
+    </form>
+
+    <p class="disclaimer">
+        * All applications are subject to underwriting approval. The estimated premium is indicative and may be adjusted upon verification of details. 
+        By submitting this form, you agree to be contacted by Third Wave Insurance Agency regarding your application.
+    </p>
+</div>
+
+<script>
+    function calculatePremium() {
+        const coverageType = document.getElementById('coverageType').value;
+        const sumInsured = parseFloat(document.getElementById('sumInsured').value) || 0;
+        const premiumDisplay = document.getElementById('estimatedPremium');
+        const premiumAmount = document.getElementById('premiumAmount');
+
+        let premium = 0;
+
+        if (coverageType === '1 Month TOR') {
+            premium = 1500;
+        } else if (coverageType === '1 Year TPO') {
+            premium = 6000;
+        } else if (coverageType === '1 Year Comprehensive') {
+            premium = sumInsured * 0.04;
+        }
+
+        if (coverageType && (coverageType !== '1 Year Comprehensive' || sumInsured > 0)) {
+            premiumDisplay.style.display = 'block';
+            premiumAmount.textContent = 'KES ' + premium.toLocaleString('en-KE', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+        } else {
+            premiumDisplay.style.display = 'none';
+        }
+    }
+</script>
+
+</body>
+</html>
