@@ -8,70 +8,40 @@
         body, h1, h2, h3, p, label, input, select, button, span {
             font-family: 'Calibri', 'Candara', 'Segoe', 'Segoe UI', Optima, Arial, sans-serif;
         }
-        body {
-            background-color: #f4f7f6;
-            color: #333;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-        }
+        body { background-color: #f4f7f6; color: #333; margin: 0; padding: 0; line-height: 1.6; }
         .container { max-width: 800px; margin: 0 auto; padding: 20px; }
-        header {
-            text-align: center;
-            padding: 30px 20px;
-            background-color: #fff;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            margin-bottom: 30px;
-        }
+        header { text-align: center; padding: 30px 20px; background-color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 30px; }
         .logo { max-width: 220px; height: auto; margin-bottom: 15px; }
         header h1 { color: #2c3e50; margin: 10px 0 5px; font-size: 28px; }
         header p { color: #7f8c8d; font-size: 16px; }
-        .pricing-info {
-            background-color: #e8f4f8;
-            border-left: 5px solid #3498db;
-            padding: 20px;
-            margin-bottom: 30px;
-            border-radius: 4px;
-        }
+        .pricing-info { background-color: #e8f4f8; border-left: 5px solid #3498db; padding: 20px; margin-bottom: 30px; border-radius: 4px; }
         .pricing-info h2 { margin-top: 0; color: #2980b9; font-size: 1.25em; }
         .pricing-info table { width: 100%; border-collapse: collapse; background: #fff; }
         .pricing-info th, .pricing-info td { padding: 9px 10px; text-align: left; border: 1px solid #d5e1e5; }
         .pricing-info th { background: #f3f8fa; }
         .form-group { margin-bottom: 18px; }
         label { display: block; margin-bottom: 6px; font-weight: bold; color: #2c3e50; }
-        input[type="text"], input[type="email"], input[type="tel"], input[type="number"],
-        input[type="date"], input[type="file"], select {
-            width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px;
-            font-size: 16px; box-sizing: border-box; transition: border-color 0.3s;
+        input[type="text"], input[type="email"], input[type="tel"], input[type="number"], input[type="date"], input[type="file"], select {
+            width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px; font-size: 16px; box-sizing: border-box; transition: border-color 0.3s;
         }
         input:focus, select:focus { border-color: #3498db; outline: none; }
         input[readonly] { background: #f0f2f3; color: #555; }
         .help-text { display: block; color: #666; font-size: 14px; margin-top: 4px; }
-        button {
-            background-color: #3498db; color: white; padding: 14px 20px; border: none;
-            border-radius: 4px; cursor: pointer; font-size: 18px; font-weight: bold;
-            width: 100%; transition: background-color 0.3s; margin-top: 10px;
-        }
+        button { background-color: #3498db; color: white; padding: 14px 20px; border: none; border-radius: 4px; cursor: pointer; font-size: 18px; font-weight: bold; width: 100%; transition: background-color 0.3s; margin-top: 10px; }
         button:hover { background-color: #2980b9; }
-        .estimated-premium {
-            margin-top: 25px; padding: 15px; background-color: #d4edda;
-            border: 1px solid #c3e6cb; border-radius: 4px; color: #155724;
-            font-weight: bold; font-size: 18px; display: none; text-align: center;
-        }
+        button:disabled { opacity: 0.7; cursor: wait; }
+        .estimated-premium { margin-top: 25px; padding: 15px; background-color: #d4edda; border: 1px solid #c3e6cb; border-radius: 4px; color: #155724; font-weight: bold; font-size: 18px; display: none; text-align: center; }
+        .form-status { display: none; padding: 12px; margin-top: 15px; border-radius: 4px; }
+        .form-status.success { display: block; color: #155724; background: #d4edda; border: 1px solid #c3e6cb; }
+        .form-status.error { display: block; color: #721c24; background: #f8d7da; border: 1px solid #f5c6cb; }
         .disclaimer { font-size: 14px; color: #666; margin-top: 25px; text-align: center; font-style: italic; }
-        @media (max-width: 560px) {
-            .container { padding: 14px; }
-            .pricing-info { padding: 12px; overflow-x: auto; }
-            .pricing-info th, .pricing-info td { padding: 7px; }
-        }
+        @media (max-width: 560px) { .container { padding: 14px; } .pricing-info { padding: 12px; overflow-x: auto; } .pricing-info th, .pricing-info td { padding: 7px; } }
     </style>
 </head>
 <body>
 <header>
     <div class="container">
-        <img src="https://florasafaris2020-lang.github.io/third-wave-solutions/logo.png"
-             alt="Third Wave Insurance Agency logo" class="logo"
-             onerror="this.src='https://via.placeholder.com/220x80/2c3e50/ffffff?text=Third+Wave+Insurance+Agency'">
+        <img src="https://florasafaris2020-lang.github.io/third-wave-solutions/logo.png" alt="Third Wave Insurance Agency logo" class="logo" onerror="this.src='https://via.placeholder.com/220x80/2c3e50/ffffff?text=Third+Wave+Insurance+Agency'">
         <h1>Third Wave Insurance Agency</h1>
         <p>Submit your details for insurance coverage. All applications are subject to underwriting approval.</p>
     </div>
@@ -101,139 +71,61 @@
         <input type="hidden" name="access_key" value="49a72ad5-849a-4aa1-9bba-fc1d1b63485f">
         <input type="hidden" name="subject" value="New Insurance Application - Third Wave Insurance Agency">
         <input type="hidden" name="from_name" value="Third Wave Insurance Agency">
-
-        <div class="form-group">
-            <label for="insuredName">Insured Name *</label>
-            <input type="text" id="insuredName" name="Insured_Name" autocomplete="name" required>
-        </div>
-        <div class="form-group">
-            <label for="coverageType">Type of Cover *</label>
+        <div class="form-group"><label for="insuredName">Insured Name *</label><input type="text" id="insuredName" name="Insured_Name" autocomplete="name" required></div>
+        <div class="form-group"><label for="coverageType">Type of Cover *</label>
             <select id="coverageType" name="Coverage_Type" required>
-                <option value="">-- Select cover --</option>
-                <option value="TOR">TOR</option>
-                <option value="TPO">TPO</option>
-                <option value="Comprehensive">Comprehensive</option>
+                <option value="">-- Select cover --</option><option value="TOR">TOR</option><option value="TPO">TPO</option><option value="Comprehensive">Comprehensive</option>
             </select>
         </div>
-        <div class="form-group">
-            <label for="certificateType">Certificate Type *</label>
-            <select id="certificateType" name="Certificate_Type" required disabled>
-                <option value="">-- Select cover first --</option>
-            </select>
+        <div class="form-group"><label for="certificateType">Certificate Type *</label>
+            <select id="certificateType" name="Certificate_Type" required disabled><option value="">-- Select cover first --</option></select>
             <small class="help-text">Only certificate types priced for the selected cover are available.</small>
         </div>
-        <div class="form-group">
-            <label for="vehicleNumber">Vehicle Registration Number *</label>
-            <input type="text" id="vehicleNumber" name="Vehicle_Number" required>
-        </div>
-        <div class="form-group">
-            <label for="chassisNumber">Chassis Number *</label>
-            <input type="text" id="chassisNumber" name="Chassis_Number" required>
-        </div>
-        <div class="form-group">
-            <label for="vehicleMake">Vehicle Make *</label>
-            <input type="text" id="vehicleMake" name="Vehicle_Make" required>
-        </div>
-        <div class="form-group">
-            <label for="vehicleModel">Vehicle Model *</label>
-            <input type="text" id="vehicleModel" name="Vehicle_Model" required>
-        </div>
-        <div class="form-group">
-            <label for="bodyType">Body Type *</label>
-            <input type="text" id="bodyType" name="Body_Type" required>
-        </div>
-        <div class="form-group">
-            <label for="yearOfManufacture">Year of Manufacture *</label>
-            <input type="number" id="yearOfManufacture" name="Year_of_Manufacture" min="1900" required>
-        </div>
-        <div class="form-group">
-            <label for="engineNumber">Engine Number *</label>
-            <input type="text" id="engineNumber" name="Engine_Number" required>
-        </div>
-        <div class="form-group">
-            <label for="insuredPIN">Insured KRA PIN *</label>
-            <input type="text" id="insuredPIN" name="Insured_PIN" required>
-        </div>
-        <div class="form-group">
-            <label for="sumInsured">Sum Insured (Vehicle Value in KES) <span id="sumInsuredRequired"></span></label>
+        <div class="form-group"><label for="vehicleNumber">Vehicle Registration Number *</label><input type="text" id="vehicleNumber" name="Vehicle_Number" required></div>
+        <div class="form-group"><label for="chassisNumber">Chassis Number *</label><input type="text" id="chassisNumber" name="Chassis_Number" required></div>
+        <div class="form-group"><label for="vehicleMake">Vehicle Make *</label><input type="text" id="vehicleMake" name="Vehicle_Make" required></div>
+        <div class="form-group"><label for="vehicleModel">Vehicle Model *</label><input type="text" id="vehicleModel" name="Vehicle_Model" required></div>
+        <div class="form-group"><label for="bodyType">Body Type *</label><input type="text" id="bodyType" name="Body_Type" required></div>
+        <div class="form-group"><label for="yearOfManufacture">Year of Manufacture *</label><input type="number" id="yearOfManufacture" name="Year_of_Manufacture" min="1900" required></div>
+        <div class="form-group"><label for="engineNumber">Engine Number *</label><input type="text" id="engineNumber" name="Engine_Number" required></div>
+        <div class="form-group"><label for="insuredPIN">Insured KRA PIN *</label><input type="text" id="insuredPIN" name="Insured_PIN" required></div>
+        <div class="form-group"><label for="sumInsured">Sum Insured (Vehicle Value in KES) <span id="sumInsuredRequired"></span></label>
             <input type="number" id="sumInsured" name="Sum_Insured" min="1" step="0.01" disabled>
             <small id="sumInsuredHelp" class="help-text">Only required for Comprehensive cover.</small>
         </div>
-        <div class="form-group">
-            <label for="startDate">Start Date *</label>
-            <input type="date" id="startDate" name="Start_Date" required>
-        </div>
-        <div class="form-group">
-            <label for="endDate">End Date *</label>
-            <input type="date" id="endDate" name="End_Date" required readonly>
-            <small id="endDateHelp" class="help-text">Choose a cover and start date to calculate the end date.</small>
-        </div>
-        <div class="form-group">
-            <label for="email">Email Address *</label>
-            <input type="email" id="email" name="Email" autocomplete="email" required>
-        </div>
-        <div class="form-group">
-            <label for="phoneNumber">Phone Number *</label>
-            <input type="tel" id="phoneNumber" name="Phone_Number" autocomplete="tel" required>
-        </div>
-
+        <div class="form-group"><label for="startDate">Start Date *</label><input type="date" id="startDate" name="Start_Date" required></div>
+        <div class="form-group"><label for="endDate">End Date *</label><input type="date" id="endDate" name="End_Date" required readonly><small id="endDateHelp" class="help-text">Choose a cover and start date to calculate the end date.</small></div>
+        <div class="form-group"><label for="email">Email Address *</label><input type="email" id="email" name="Email" autocomplete="email" required></div>
+        <div class="form-group"><label for="phoneNumber">Phone Number *</label><input type="tel" id="phoneNumber" name="Phone_Number" autocomplete="tel" required></div>
         <fieldset style="border: 1px solid #d5e1e5; border-radius: 4px; padding: 16px; margin: 0 0 18px;">
             <legend style="font-weight: bold; color: #2c3e50; padding: 0 6px;">Required Documents</legend>
-            <div class="form-group">
-                <label for="idCard">(i) ID card *</label>
-                <input type="file" id="idCard" name="ID_Card" accept=".pdf,.jpg,.jpeg,.png" required>
-                <small class="help-text">Upload a PDF, JPG, or PNG file.</small>
-            </div>
-            <div class="form-group">
-                <label for="logBook">(ii) Log book *</label>
-                <input type="file" id="logBook" name="Log_Book" accept=".pdf,.jpg,.jpeg,.png" required>
-                <small class="help-text">Upload a PDF, JPG, or PNG file.</small>
-            </div>
-            <div class="form-group" style="margin-bottom: 0;">
-                <label for="kraPinDocument">(iii) KRA PIN certificate *</label>
-                <input type="file" id="kraPinDocument" name="KRA_PIN_Document" accept=".pdf,.jpg,.jpeg,.png" required>
-                <small class="help-text">Upload a PDF, JPG, or PNG file.</small>
-            </div>
+            <div class="form-group"><label for="idCard">(i) ID card *</label><input type="file" id="idCard" name="ID_Card" accept=".pdf,.jpg,.jpeg,.png" required><small class="help-text">Upload a PDF, JPG, or PNG file.</small></div>
+            <div class="form-group"><label for="logBook">(ii) Log book *</label><input type="file" id="logBook" name="Log_Book" accept=".pdf,.jpg,.jpeg,.png" required><small class="help-text">Upload a PDF, JPG, or PNG file.</small></div>
+            <div class="form-group" style="margin-bottom: 0;"><label for="kraPinDocument">(iii) KRA PIN certificate *</label><input type="file" id="kraPinDocument" name="KRA_PIN_Document" accept=".pdf,.jpg,.jpeg,.png" required><small class="help-text">Upload a PDF, JPG, or PNG file.</small></div>
         </fieldset>
-
-        <div id="estimatedPremium" class="estimated-premium" aria-live="polite">
-            Estimated Premium: <span id="premiumAmount">KES 0</span>
-        </div>
-        <button type="submit">Submit Application for Approval</button>
+        <div id="estimatedPremium" class="estimated-premium" aria-live="polite">Estimated Premium: <span id="premiumAmount">KES 0</span></div>
+        <div id="formStatus" class="form-status" role="status" aria-live="polite"></div>
+        <button id="submitButton" type="submit">Submit Application for Approval</button>
     </form>
-
-    <p class="disclaimer">
-        * All applications are subject to underwriting approval. The estimated premium is indicative and may be adjusted upon verification of details.
-        By submitting this form, you agree to be contacted by Third Wave Insurance Agency regarding your application.
-    </p>
+    <p class="disclaimer">* All applications are subject to underwriting approval. The estimated premium is indicative and may be adjusted upon verification of details. By submitting this form, you agree to be contacted by Third Wave Insurance Agency regarding your application.</p>
 </main>
 
 <script>
     const prices = {
-        TOR: {
-            'Type C - Private Car': 1500,
-            'Type B - Commercial Vehicle': 2200
-        },
+        TOR: { 'Type C - Private Car': 1500, 'Type B - Commercial Vehicle': 2200 },
         TPO: {
-            'Class A - PSV Unmarked': 4500,
-            'Type A - Taxi': 5500,
-            'Type B - Commercial Vehicle': 6500,
-            'Type C - Private Car': 5000,
-            'Type D - Motor Cycle': 4500,
-            'Type D – Motor Cycle Commercial': 4700,
+            'Class A - PSV Unmarked': 4500, 'Type A - Taxi': 5500,
+            'Type B - Commercial Vehicle': 6500, 'Type C - Private Car': 5000,
+            'Type D - Motor Cycle': 4500, 'Type D – Motor Cycle Commercial': 4700,
             'Type D - PSV': 5500
         },
         Comprehensive: {
-            'Class A - PSV Unmarked': null,
-            'Type A - Taxi': null,
-            'Type B - Commercial Vehicle': null,
-            'Type C - Private Car': null,
-            'Type D - Motor Cycle': null,
-            'Type D – Motor Cycle Commercial': null,
+            'Class A - PSV Unmarked': null, 'Type A - Taxi': null,
+            'Type B - Commercial Vehicle': null, 'Type C - Private Car': null,
+            'Type D - Motor Cycle': null, 'Type D – Motor Cycle Commercial': null,
             'Type D - PSV': null
         }
     };
-
     const coverageSelect = document.getElementById('coverageType');
     const certificateSelect = document.getElementById('certificateType');
     const sumInsuredInput = document.getElementById('sumInsured');
@@ -253,7 +145,6 @@
         calculatePremium();
         updateEndDate();
     }
-
     function updateSumInsured() {
         const comprehensive = coverageSelect.value === 'Comprehensive';
         sumInsuredInput.disabled = !comprehensive;
@@ -264,29 +155,23 @@
             ? 'Required for Comprehensive cover; the premium is 4% of this value.'
             : 'Only required for Comprehensive cover.';
     }
-
     function calculatePremium() {
         const cover = coverageSelect.value;
         const type = certificateSelect.value;
         const amount = cover === 'Comprehensive'
-            ? (Number(sumInsuredInput.value) * 0.04)
+            ? Number(sumInsuredInput.value) * 0.04
             : (prices[cover] && prices[cover][type]);
         const display = document.getElementById('estimatedPremium');
         if (amount > 0) {
             display.style.display = 'block';
-            document.getElementById('premiumAmount').textContent = 'KES ' + amount.toLocaleString('en-KE', {
-                minimumFractionDigits: 0,
-                maximumFractionDigits: 2
-            });
+            document.getElementById('premiumAmount').textContent = 'KES ' + amount.toLocaleString('en-KE', { minimumFractionDigits: 0, maximumFractionDigits: 2 });
         } else {
             display.style.display = 'none';
         }
     }
-
     function formatDate(date) {
         return [date.getUTCFullYear(), String(date.getUTCMonth() + 1).padStart(2, '0'), String(date.getUTCDate()).padStart(2, '0')].join('-');
     }
-
     function updateEndDate() {
         const start = startDateInput.value;
         const cover = coverageSelect.value;
@@ -296,18 +181,13 @@
             return;
         }
         const [year, month, day] = start.split('-').map(Number);
-        let end;
+        const end = new Date(Date.UTC(year, month - 1, day));
         if (cover === 'TOR') {
-            // Add one calendar month, clamping to the last valid day of that month.
-            const targetMonth = month; // UTC month is zero-based; this advances one month from the input month.
-            const lastDay = new Date(Date.UTC(year, targetMonth + 1, 0)).getUTCDate();
-            end = new Date(Date.UTC(year, targetMonth, Math.min(day, lastDay)));
-            endDateHelp.textContent = 'TOR end date is set one calendar month after the start date.';
+            end.setUTCDate(end.getUTCDate() + 29);
+            endDateHelp.textContent = 'TOR end date is set 29 days after the start date.';
         } else {
-            // TPO and Comprehensive are set to 365 days after the selected start date.
-            end = new Date(Date.UTC(year, month - 1, day));
-            end.setUTCDate(end.getUTCDate() + 365);
-            endDateHelp.textContent = 'End date is set 365 days after the start date.';
+            end.setUTCDate(end.getUTCDate() + 364);
+            endDateHelp.textContent = 'End date is set 364 days after the start date.';
         }
         endDateInput.value = formatDate(end);
     }
@@ -316,6 +196,40 @@
     certificateSelect.addEventListener('change', calculatePremium);
     sumInsuredInput.addEventListener('input', calculatePremium);
     startDateInput.addEventListener('change', updateEndDate);
+
+    document.getElementById('insuranceForm').addEventListener('submit', async function (event) {
+        event.preventDefault();
+        const form = event.currentTarget;
+        const button = document.getElementById('submitButton');
+        const status = document.getElementById('formStatus');
+        status.className = 'form-status';
+        status.textContent = '';
+        button.disabled = true;
+        button.textContent = 'Submitting…';
+        try {
+            // Send FormData directly so the browser sets the multipart boundary for uploaded documents.
+            const response = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
+            const result = await response.json().catch(() => ({}));
+            if (!response.ok || result.success !== true) {
+                throw new Error(result.message || `The form service returned an error (HTTP ${response.status}).`);
+            }
+            status.className = 'form-status success';
+            status.textContent = result.message || 'Your application was submitted successfully. Thank you.';
+            form.reset();
+            certificateSelect.replaceChildren(new Option('-- Select cover first --', ''));
+            certificateSelect.disabled = true;
+            updateSumInsured();
+            endDateInput.value = '';
+            document.getElementById('estimatedPremium').style.display = 'none';
+            endDateHelp.textContent = 'Choose a cover and start date to calculate the end date.';
+        } catch (error) {
+            status.className = 'form-status error';
+            status.textContent = `Your application could not be submitted. ${error.message} Please check your connection and try again. If the error concerns file attachments, confirm that file attachments are enabled for your Web3Forms account.`;
+        } finally {
+            button.disabled = false;
+            button.textContent = 'Submit Application for Approval';
+        }
+    });
 </script>
 </body>
 </html>
