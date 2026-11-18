@@ -1,0 +1,16 @@
+name = "thirdwave-insurance-api"
+main = "src/index.js"
+compatibility_date = "2026-11-18"
+
+# Set ALLOWED_ORIGIN to the exact published site origin before deploying.
+[vars]
+ALLOWED_ORIGIN = "https://florasafaris2020-lang.github.io"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "thirdwave-insurance-applications"
+database_id = "REPLACE_WITH_D1_DATABASE_ID"
+
+[[r2_buckets]]
+binding = "DOCUMENTS"
+bucket_name = "thirdwave-insurance-private-documents"
