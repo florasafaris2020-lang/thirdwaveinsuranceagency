@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Third Wave Insurance Agency</title>
+<style>
+body,h1,h2,p,label,input,select,button{font-family:Calibri,Candara,Segoe,Arial,sans-serif}body{background:#f1f8f2;color:#333;margin:0;line-height:1.6}.container{max-width:800px;margin:auto;padding:20px}header{text-align:center;background:#ACE1AF;padding:25px;box-shadow:0 2px 8px #0001}header h1,header p{color:#17321c}.logo{max-width:220px}h1,h2,label{color:#2c3e50}.pricing-info{background:#eef8ef;border-left:5px solid #ACE1AF;padding:20px;margin:20px 0}.pricing-info table{width:100%;border-collapse:collapse;background:white}.pricing-info th,.pricing-info td{padding:9px;border:1px solid #d5e1e5;text-align:left}.form-group{margin-bottom:16px}label{display:block;font-weight:bold;margin-bottom:5px}input,select{width:100%;padding:11px;border:1px solid #ccc;border-radius:4px;box-sizing:border-box;font-size:16px}.help-text{color:#666;font-size:14px}.form-status{display:none;padding:12px;margin-top:15px}.form-status.success{display:block;color:#155724;background:#d4edda}.form-status.error{display:block;color:#721c24;background:#f8d7da}button{width:100%;padding:14px;background:#ACE1AF;color:#17321c;border:0;border-radius:4px;font-size:18px;font-weight:bold;cursor:pointer}button:disabled{opacity:.7}.disclaimer{text-align:center;color:#666;font-size:14px}fieldset{border:1px solid #d5e1e5;border-radius:6px;padding:16px;margin:0 0 18px;background:#fff}legend{font-weight:bold;color:#2c3e50;padding:0 6px}.field-error{display:none;color:#721c24;font-size:14px;margin-top:4px}.field-error.show{display:block}.premium-box{display:none;background:#fff;border:1px solid #d5e1e5;border-left:5px solid #27ae60;padding:14px;margin:0 0 18px}.premium-box.show{display:block}.premium-box strong{font-size:22px;color:#1e8449}.doc-hint{color:#666;font-size:14px;margin:0 0 10px}@media(max-width:560px){.container{padding:14px}.pricing-info{overflow-x:auto}}
+</style>
+</head>
+<body data-api-base="https://third-wave-insurance-applications-6hj0lm.freebuff.site">
+<header><div class="container"><img src="https://florasafaris2020-lang.github.io/third-wave-solutions/logo.png" alt="Third Wave Insurance Agency logo" class="logo" onerror="this.style.display='none'"><h1>Third Wave Insurance Agency</h1><p>Submit your details for insurance coverage. Applications are subject to underwriting approval.</p></div></header>
+<main class="container">
+<section class="pricing-info"><h2>Motor Insurance Price List (KES)</h2><table><thead><tr><th>Cover</th><th>Certificate type</th><th>Premium</th></tr></thead><tbody><tr><td>TOR</td><td>Type C - Private Car</td><td>1,500</td></tr><tr><td>TOR</td><td>Type B - Commercial Vehicle</td><td>2,200</td></tr><tr><td>TPO</td><td>Class A - PSV Unmarked</td><td>4,500</td></tr><tr><td>TPO</td><td>Type A - Taxi</td><td>5,500</td></tr><tr><td>TPO</td><td>Type B - Commercial Vehicle</td><td>6,500</td></tr><tr><td>TPO</td><td>Type C - Private Car</td><td>5,000</td></tr><tr><td>TPO</td><td>Type D - Motor Cycle</td><td>4,500</td></tr><tr><td>TPO</td><td>Type D – Motor Cycle Commercial</td><td>4,700</td></tr><tr><td>TPO</td><td>Type D - PSV</td><td>5,500</td></tr><tr><td>Comprehensive</td><td>All listed certificate types</td><td>4% of vehicle value</td></tr></tbody></table></section>
+<form action="/api/insurance-applications" method="POST" id="insuranceForm" enctype="multipart/form-data" novalidate>
+<div class="form-group"><label for="insuredName">Insured Name *</label><input id="insuredName" name="Insured_Name" autocomplete="name" required></div>
+<div class="form-group"><label for="coverageType">Type of Cover *</label><select id="coverageType" name="Coverage_Type" required><option value="">-- Select cover --</option><option>TOR</option><option>TPO</option><option>Comprehensive</option></select></div>
+<div class="form-group"><label for="certificateType">Certificate Type *</label><select id="certificateType" name="Certificate_Type" required disabled><option value="">-- Select cover first --</option></select></div>
+<div class="form-group"><label for="vehicleNumber">Vehicle Registration Number *</label><input id="vehicleNumber" name="Vehicle_Number" required></div>
+<div class="form-group"><label for="chassisNumber">Chassis Number *</label><input id="chassisNumber" name="Chassis_Number" required></div>
+<div class="form-group"><label for="vehicleMake">Vehicle Make *</label><input id="vehicleMake" name="Vehicle_Make" required></div>
+<div class="form-group"><label for="vehicleModel">Vehicle Model *</label><input id="vehicleModel" name="Vehicle_Model" required></div>
+<div class="form-group"><label for="bodyType">Body Type *</label><input id="bodyType" name="Body_Type" required></div>
+<div class="form-group"><label for="yearOfManufacture">Year of Manufacture *</label><input type="number" id="yearOfManufacture" name="Year_of_Manufacture" min="1900" required></div>
+<div class="form-group"><label for="engineNumber">Engine Number *</label><input id="engineNumber" name="Engine_Number" required></div>
+<div class="form-group"><label for="insuredPIN">Insured KRA PIN *</label><input id="insuredPIN" name="Insured_PIN" required></div>
+<div class="form-group"><label for="sumInsured">Sum Insured (Vehicle Value in KES)</label><input type="number" id="sumInsured" name="Sum_Insured" min="1" step="0.01" disabled><small id="sumInsuredHelp" class="help-text">Only required for Comprehensive cover.</small></div>
+<div class="premium-box" id="premiumBox">Estimated premium: <strong id="premiumAmount">—</strong><div class="help-text" id="premiumNote"></div></div>
+<div class="form-group"><label for="startDate">Start Date *</label><input type="date" id="startDate" name="Start_Date" required></div>
+<div class="form-group"><label for="endDate">End Date *</label><input type="date" id="endDate" name="End_Date" required readonly><small id="endDateHelp" class="help-text">Choose cover and start date to calculate the end date.</small></div>
+<div class="form-group"><label for="email">Email Address *</label><input type="email" id="email" name="Email" autocomplete="email" required></div>
+<div class="form-group"><label for="phoneNumber">Phone Number *</label><input type="tel" id="phoneNumber" name="Phone_Number" autocomplete="tel" required></div>
+
+<fieldset>
+<legend>Required Documents</legend>
+<p class="doc-hint">Upload each document separately. PDF, JPG, or PNG — up to 5 MB each.</p>
+<div class="form-group"><label for="idCard">ID Card *</label><input type="file" id="idCard" name="id_card" accept=".pdf,.jpg,.jpeg,.png" required><div class="field-error" data-for="id_card"></div></div>
+<div class="form-group"><label for="logBook">Log Book *</label><input type="file" id="logBook" name="log_book" accept=".pdf,.jpg,.jpeg,.png" required><div class="field-error" data-for="log_book"></div></div>
+<div class="form-group"><label for="kraPinCertificate">KRA PIN Certificate *</label><input type="file" id="kraPinCertificate" name="kra_pin" accept=".pdf,.jpg,.jpeg,.png" required><div class="field-error" data-for="kra_pin"></div></div>
+</fieldset>
+
+<div id="formStatus" class="form-status" role="status" aria-live="polite"></div><button id="submitButton" type="submit">Submit Application for Approval</button>
+</form>
+<p class="disclaimer">Applications are subject to underwriting review. Submitting does not constitute approval.</p>
+</main>
+<script>
+const API_BASE = document.body.dataset.apiBase || '';
+const prices={TOR:{'Type C - Private Car':1500,'Type B - Commercial Vehicle':2200},TPO:{'Class A - PSV Unmarked':4500,'Type A - Taxi':5500,'Type B - Commercial Vehicle':6500,'Type C - Private Car':5000,'Type D - Motor Cycle':4500,'Type D – Motor Cycle Commercial':4700,'Type D - PSV':5500},Comprehensive:{'Class A - PSV Unmarked':null,'Type A - Taxi':null,'Type B - Commercial Vehicle':null,'Type C - Private Car':null,'Type D - Motor Cycle':null,'Type D – Motor Cycle Commercial':null,'Type D - PSV':null}};
+const form=document.getElementById('insuranceForm'), cover=document.getElementById('coverageType'), certificate=document.getElementById('certificateType'), sum=document.getElementById('sumInsured'), start=document.getElementById('startDate'), end=document.getElementById('endDate');
+const premiumBox=document.getElementById('premiumBox'), premiumAmount=document.getElementById('premiumAmount'), premiumNote=document.getElementById('premiumNote');
+const money=new Intl.NumberFormat('en-KE',{style:'currency',currency:'KES',maximumFractionDigits:2});
+function updatePremium(){const table=prices[cover.value];if(!table||!certificate.value){premiumBox.className='premium-box';return}const flat=table[certificate.value];premiumBox.className='premium-box show';if(cover.value==='Comprehensive'){const value=Number(sum.value);if(value>0){premiumAmount.textContent=money.format(value*0.04);premiumNote.textContent='Comprehensive cover: 4% of '+money.format(value)+' vehicle value.'}else{premiumAmount.textContent='4% of vehicle value';premiumNote.textContent='Enter the sum insured to see the premium.'}}else{premiumAmount.textContent=money.format(flat);premiumNote.textContent=cover.value+' — '+certificate.value+' flat premium.'}}
+function updateCover(){const types=Object.keys(prices[cover.value]||{});certificate.replaceChildren(new Option(types.length?'-- Select certificate type --':'-- Select cover first --',''));types.forEach(t=>certificate.add(new Option(t,t)));certificate.disabled=!types.length;sum.disabled=cover.value!=='Comprehensive';sum.required=cover.value==='Comprehensive';if(sum.disabled)sum.value='';document.getElementById('sumInsuredHelp').textContent=sum.required?'Required for Comprehensive cover; premium is 4% of vehicle value.':'Only required for Comprehensive cover.';updateEndDate();updatePremium()}
+function updateEndDate(){if(!start.value||!cover.value){end.value='';return}const [y,m,d]=start.value.split('-').map(Number),date=new Date(Date.UTC(y,m-1,d));date.setUTCDate(date.getUTCDate()+(cover.value==='TOR'?29:364));end.value=[date.getUTCFullYear(),String(date.getUTCMonth()+1).padStart(2,'0'),String(date.getUTCDate()).padStart(2,'0')].join('-')}
+cover.addEventListener('change',updateCover);start.addEventListener('change',updateEndDate);sum.addEventListener('input',updatePremium);certificate.addEventListener('change',updatePremium);
+function clearFieldErrors(){document.querySelectorAll('.field-error').forEach(el=>{el.textContent='';el.classList.remove('show')})}
+function showFieldErrors(errors){Object.entries(errors||{}).forEach(([field,message])=>{const el=document.querySelector('.field-error[data-for="'+field+'"]');if(el){el.textContent=message;el.classList.add('show')}})}
+form.addEventListener('submit',async e=>{e.preventDefault();const button=document.getElementById('submitButton'),status=document.getElementById('formStatus');clearFieldErrors();status.className='form-status';status.textContent='';button.disabled=true;button.textContent='Submitting…';try{const response=await fetch(API_BASE+form.getAttribute('action'),{method:'POST',body:new FormData(form),headers:{Accept:'application/json'}});const result=await response.json().catch(()=>({}));if(!response.ok){showFieldErrors(result.errors);throw new Error(result.message||`Backend returned HTTP ${response.status}.`)}status.className='form-status success';status.textContent=result.message||'Application received and pending underwriting review.';form.reset();certificate.replaceChildren(new Option('-- Select cover first --',''));certificate.disabled=true;sum.disabled=true;end.value='';premiumBox.className='premium-box'}catch(error){status.className='form-status error';status.textContent=`Application was not submitted: ${error.message}`}finally{button.disabled=false;button.textContent='Submit Application for Approval'}});
+</script>
+</body>
+</html>
