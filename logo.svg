@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 152" width="220" height="152" role="img" aria-labelledby="twLogoTitle">
+  <title id="twLogoTitle">Third Wave Insurance Agency</title>
+  <text x="110" y="70" text-anchor="middle" font-family="Calibri, Candara, Segoe, Arial, sans-serif" font-size="70" font-weight="700" letter-spacing="3" fill="#17321c">3W</text>
+  <g fill="none" stroke="#2e7d4f" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M35 96 q22 -16 45 0 t45 0 t45 0"/>
+    <path d="M35 116 q22 -16 45 0 t45 0 t45 0"/>
+    <path d="M35 136 q22 -16 45 0 t45 0 t45 0"/>
+  </g>
+</svg>
