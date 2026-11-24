@@ -11,7 +11,7 @@ jobs:
         run: |
           python3 - <<'PY' >> "$GITHUB_STEP_SUMMARY" 2>&1
           import io, hashlib
-          p = 'github-pages/index.html'
+          p = 'index.html'
           s = io.open(p, encoding='utf-8').read()
           a1 = "makeSelect.addEventListener('change',updateMakeOther);updateMakeOther();"
           b1 = "makeSelect.addEventListener('change',()=>{updateMakeOther();fillModelOptions()});updateMakeOther();"
@@ -34,6 +34,6 @@ jobs:
           set -e
           git config user.name "mirror-bot"
           git config user.email "mirror-bot@users.noreply.github.com"
-          git add github-pages/index.html
+          git add index.html
           git commit -m "sync: pages mirror from production" || echo "nothing to commit"
           git push -f origin HEAD:refs/heads/model-filter-sync
