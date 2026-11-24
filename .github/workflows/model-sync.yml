@@ -9,11 +9,14 @@ jobs:
       - uses: actions/checkout@v4
       - name: Build mirror
         run: |
-          set -e
-          curl -fsSL https://third-wave-insurance-applications-6hj0lm.freebuff.site -o github-pages/index.html
+          set -x
+          curl -fsSL "https://third-wave-insurance-applications-6hj0lm.freebuff.site/" -o /tmp/live.html 2>/tmp/curl.err || echo "curl-exit=$?"
+          ls -l /tmp/live.html /tmp/curl.err || true
+          cat /tmp/curl.err || true
+          wc -c /tmp/live.html || true
+          cp /tmp/live.html github-pages/index.html
           sed -i 's|<body data-api-base="">|<body data-api-base="https://third-wave-insurance-applications-6hj0lm.freebuff.site">|' github-pages/index.html
-          sha256sum github-pages/index.html
-          wc -c github-pages/index.html
+          sha256sum public/index.html github-pages/index.html | tee -a "$GITHUB_STEP_SUMMARY"
       - name: Commit
         run: |
           set -e
