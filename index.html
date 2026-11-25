@@ -65,7 +65,7 @@ const motorcycleModels={"Bajaj":["Boxer","Pulsar","Discover","Platina","CT","Che
 const motorcycleModelGroups=new Map(Object.entries(motorcycleModels));
 const bodyTypeText=document.getElementById('bodyType'),bodyTypeLabel=document.getElementById('bodyTypeLabel'),bodyTypeSelect=document.getElementById('bodyTypeSelect'),bodyTypeError=document.querySelector('.field-error[data-for="Body_Type"]'),bodyTypeOther=document.getElementById('bodyTypeOther'),bodyTypeOtherGroup=document.getElementById('bodyTypeOtherGroup'),bodyTypeOtherError=document.querySelector('.field-error[data-for="Body_Type_Other"]');
 const MOTORCYCLE_CERTIFICATES=new Set(['Type D - Motor Cycle','Type D \u2013 Motor Cycle Commercial']);
-const MOTOR_VEHICLE_CERTIFICATES=new Set(['Type A - Taxi','Type B - Commercial Vehicle','Type C - Private Car']);
+const MOTOR_VEHICLE_CERTIFICATES=new Set(['Class A - PSV Unmarked','Type A - Taxi','Type B - Commercial Vehicle','Type C - Private Car']);
 const motorcycleBodyTypes=['Standard (commuter)','Scooter','Off-road / Dirt bike','Tricycle (tuk-tuk)','Sports','Cruiser','Touring','Utility / Cargo','Delivery box','Electric scooter','Electric tricycle'];
 const motorVehicleBodyTypes=['Saloon','Hatchback','Station wagon','Coupe','Convertible','SUV / 4x4','Pick-up','Double cab pick-up','Van','Panel van','Minibus (matatu)','Bus','Lorry / Truck','Tipper','Tanker','Trailer','Prime mover','Chassis cab','Ambulance'];
 function bodyTypeMode(){if(MOTORCYCLE_CERTIFICATES.has(certificate.value))return 'motorcycle';if(MOTOR_VEHICLE_CERTIFICATES.has(certificate.value))return 'vehicle';return 'text'}
