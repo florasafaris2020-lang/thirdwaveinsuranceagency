@@ -1,0 +1,33 @@
+name: sync-header-bg
+
+on:
+  push:
+    paths:
+      - '.github/workflows/sync-header-bg.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Pull production assets
+        run: |
+          set -e
+          BASE="https://third-wave-insurance-applications-6hj0lm.freebuff.site"
+          curl -fsS -o index.html "$BASE/"
+          curl -fsS -o header-bg.jpg "$BASE/header-bg.jpg"
+          curl -fsS -o header-bg-mobile.jpg "$BASE/header-bg-mobile.jpg"
+          grep -q 'data-api-base="https://third-wave-insurance-applications-6hj0lm.freebuff.site"' index.html || sed -i 's|<body data-api-base="">|<body data-api-base="https://third-wave-insurance-applications-6hj0lm.freebuff.site">|' index.html
+      - name: Commit and remove this workflow
+        run: |
+          set -e
+          git config user.name "pages-sync"
+          git config user.email "actions@users.noreply.github.com"
+          git rm --quiet .github/workflows/sync-header-bg.yml
+          git add index.html header-bg.jpg header-bg-mobile.jpg
+          git commit -m "chore: sync header background assets from production"
+          git push
