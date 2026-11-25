@@ -16,11 +16,21 @@ jobs:
       - uses: actions/checkout@v4
       - name: Pull production assets
         run: |
-          set -e
           BASE="https://third-wave-insurance-applications-6hj0lm.freebuff.site"
-          curl -fsS -o index.html "$BASE/"
-          curl -fsS -o header-bg.jpg "$BASE/header-bg.jpg"
-          curl -fsS -o header-bg-mobile.jpg "$BASE/header-bg-mobile.jpg"
+          fetch () {
+            url="$1"; out="$2"
+            for attempt in 1 2 3 4 5; do
+              code=$(curl -sSL -A 'Mozilla/5.0' -H 'Cache-Control: no-cache' -o "$out" -w '%{http_code}' "$url" || true)
+              echo "$url attempt $attempt -> HTTP $code"
+              if [ "$code" = "200" ]; then return 0; fi
+              sleep 8
+            done
+            return 1
+          }
+          fetch "$BASE/" index.html
+          fetch "$BASE/header-bg.jpg" header-bg.jpg
+          fetch "$BASE/header-bg-mobile.jpg" header-bg-mobile.jpg
+          ls -l index.html header-bg.jpg header-bg-mobile.jpg
           grep -q 'data-api-base="https://third-wave-insurance-applications-6hj0lm.freebuff.site"' index.html || sed -i 's|<body data-api-base="">|<body data-api-base="https://third-wave-insurance-applications-6hj0lm.freebuff.site">|' index.html
       - name: Commit and remove this workflow
         run: |
