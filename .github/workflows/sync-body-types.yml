@@ -1,0 +1,23 @@
+name: sync-body-types
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build Pages copy from production form
+        run: |
+          curl -fsS https://third-wave-insurance-applications-6hj0lm.freebuff.site/ -o /tmp/production-form.html
+          sed 's|<body data-api-base="">|<body data-api-base="https://third-wave-insurance-applications-6hj0lm.freebuff.site">|' /tmp/production-form.html > index.html
+          echo "9f87d41933e503cd3dcec0890f40fffc7a27014f428b12beaf61665ba8850f34  index.html" | sha256sum -c -
+      - name: Commit if changed
+        run: |
+          if git diff --quiet -- index.html; then echo "already in sync"; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "chore: motorcycle body type dropdown for Type D certificates"
+          git push
